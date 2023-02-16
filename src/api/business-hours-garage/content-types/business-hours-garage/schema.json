@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "business_hours_garages",
+  "info": {
+    "singularName": "business-hours-garage",
+    "pluralName": "business-hours-garages",
+    "displayName": "BusinessHoursGarage"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "periods": {
+      "type": "json",
+      "required": true
+    },
+    "day": {
+      "type": "string"
+    },
+    "garage": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::garage.garage",
+      "inversedBy": "business_hours_garage"
+    }
+  }
+}

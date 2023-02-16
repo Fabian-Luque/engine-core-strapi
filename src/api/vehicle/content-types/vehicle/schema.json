@@ -1,0 +1,75 @@
+{
+  "kind": "collectionType",
+  "collectionName": "vehicles",
+  "info": {
+    "singularName": "vehicle",
+    "pluralName": "vehicles",
+    "displayName": "Vehicle",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "vehicleId": {
+      "type": "string",
+      "required": false,
+      "minLength": 1,
+      "unique": true
+    },
+    "year": {
+      "type": "integer",
+      "min": 1000
+    },
+    "model": {
+      "type": "string",
+      "required": false
+    },
+    "color": {
+      "type": "string"
+    },
+    "vin": {
+      "type": "string",
+      "required": false
+    },
+    "chasis": {
+      "type": "string"
+    },
+    "country": {
+      "type": "string",
+      "required": false
+    },
+    "fuelType": {
+      "type": "string"
+    },
+    "brand": {
+      "type": "string",
+      "required": false
+    },
+    "vehicleType": {
+      "type": "string",
+      "required": false
+    },
+    "owner": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "vehicles"
+    },
+    "patent": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "img": {
+      "type": "text"
+    },
+    "bookings": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::booking.booking",
+      "mappedBy": "vehicle"
+    }
+  }
+}

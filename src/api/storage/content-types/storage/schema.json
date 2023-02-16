@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "storages",
+  "info": {
+    "singularName": "storage",
+    "pluralName": "storages",
+    "displayName": "storage"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "active": {
+      "type": "boolean",
+      "default": true
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "quantity": {
+      "type": "biginteger",
+      "required": true
+    }
+  }
+}

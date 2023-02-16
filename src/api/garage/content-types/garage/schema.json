@@ -1,0 +1,95 @@
+{
+  "kind": "collectionType",
+  "collectionName": "garages",
+  "info": {
+    "singularName": "garage",
+    "pluralName": "garages",
+    "displayName": "Garage",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "minLength": 2
+    },
+    "description": {
+      "type": "text"
+    },
+    "address": {
+      "type": "string",
+      "required": true
+    },
+    "owner": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "garages"
+    },
+    "active": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "required": true
+    },
+    "phone": {
+      "type": "string",
+      "required": true
+    },
+    "workingHours": {
+      "type": "json",
+      "required": true
+    },
+    "workers": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "plugin::users-permissions.user",
+      "mappedBy": "workerOf"
+    },
+    "specialties": {
+      "type": "json"
+    },
+    "business_hours_garage": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::business-hours-garage.business-hours-garage",
+      "mappedBy": "garage"
+    },
+    "imgProfile": {
+      "type": "text"
+    },
+    "lat": {
+      "type": "string"
+    },
+    "lng": {
+      "type": "string"
+    },
+    "isCertified": {
+      "type": "boolean",
+      "default": false,
+      "required": false
+    },
+    "service_types": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::service-type.service-type"
+    },
+    "bookings": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::booking.booking",
+      "mappedBy": "garage"
+    },
+    "reservationsPerDay": {
+      "type": "integer",
+      "default": 2
+    }
+  }
+}
